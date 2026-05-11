@@ -1,4 +1,4 @@
-package tiendaonline.modelo;
+package net.salesianos.tiendaonline.modelo;
 
 public class PedidoNacional extends Pedido {
 

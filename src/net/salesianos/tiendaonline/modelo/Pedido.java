@@ -1,4 +1,4 @@
-package tiendaonline.modelo;
+package net.salesianos.tiendaonline.modelo;
 
 public class Pedido {
 
@@ -15,14 +15,29 @@ public class Pedido {
         totalPedidos++;
     }
 
-    public String getCodigo() { return codigo; }
-    public void setCodigo(String codigo) { this.codigo = codigo; }
+    public String getCodigo() {
+        return codigo;
+    }
 
-    public String getCliente() { return cliente; }
-    public void setCliente(String cliente) { this.cliente = cliente; }
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
 
-    public double getImporteBase() { return importeBase; }
-    public void setImporteBase(double importeBase) { this.importeBase = importeBase; }
+    public String getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(String cliente) {
+        this.cliente = cliente;
+    }
+
+    public double getImporteBase() {
+        return importeBase;
+    }
+
+    public void setImporteBase(double importeBase) {
+        this.importeBase = importeBase;
+    }
 
     public double calcularImporteFinal() {
         return importeBase;
@@ -30,21 +45,22 @@ public class Pedido {
 
     public boolean esPedidoValido() {
         return codigo != null && !codigo.isEmpty()
-            && cliente != null && !cliente.isEmpty()
-            && importeBase > 0;
+                && cliente != null && !cliente.isEmpty()
+                && importeBase > 0;
     }
 
     public boolean aplicarDescuento(double porcentaje) {
-        if (porcentaje <= 0 || porcentaje >= 100) return false;
+        if (porcentaje <= 0 || porcentaje >= 100)
+            return false;
         importeBase -= importeBase * (porcentaje / 100);
         return true;
     }
 
     public String mostrarInfo() {
         return "Código: " + codigo
-            + "\nCliente: " + cliente
-            + "\nImporte base: " + importeBase + " €"
-            + "\nImporte final: " + calcularImporteFinal() + " €";
+                + "\nCliente: " + cliente
+                + "\nImporte base: " + importeBase + " €"
+                + "\nImporte final: " + calcularImporteFinal() + " €";
     }
 
     public static String mostrarTotalPedidos() {
